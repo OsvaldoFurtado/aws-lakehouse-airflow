@@ -6,7 +6,8 @@ AWS Lakehouse with Apache Airflow
 
 
 
-__Project Contents__
+Project Contents
+================
 
 Apache Airflow was implemented using [Astronomer](https://www.astronomer.io/docs/learn/get-started-with-airflow). Astro project contains the following files and folders:
 
