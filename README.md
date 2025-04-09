@@ -2,17 +2,19 @@ AWS Lakehouse with Apache Airflow
 =================================
 
 
-Project Contents
-================
+![Redshift Architecture](./docs/images/aws_airflow_lakehouse.png)
+
+
+
+__Project Contents__
 
 Apache Airflow was implemented using [Astronomer](https://www.astronomer.io/docs/learn/get-started-with-airflow). Astro project contains the following files and folders:
 
 - dags: This folder contains the Python files for Airflow DAGs
-- Dockerfile: This file contains a versioned Astro Runtime Docker image that provides a differentiated Airflow experience. 
+- Dockerfile: This file contains a versioned Astro Runtime Docker image.
 - include: This folder contains any additional files that you want to include as part of the project. 
-- packages.txt: Install OS-level packages needed for the project by adding them to this file. 
 - requirements.txt: Install Python packages needed for the project by adding them to this file.
-- airflow_settings.yaml: Airflow Connections, Variables, and Pools instead of entering them in the Airflow UI as you develop DAGs in this project.
+- airflow_settings.yaml: Airflow Connections, Variables, and Pools instead of entering them in the Airflow UI.
 
 Deploy Project Locally
 ===========================
