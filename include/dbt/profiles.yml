@@ -1,0 +1,12 @@
+dbt_redshift:
+  outputs:
+    dev:
+      dbname: stellenangebote
+      host: stelenangeboten-workgroup.825765397482.us-east-1.redshift-serverless.amazonaws.com
+      password: FOSchuri1992
+      port: 5439
+      schema: staging
+      threads: 1
+      type: redshift
+      user: admin
+  target: dev

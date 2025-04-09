@@ -1,0 +1,10 @@
+data_source jobs:
+  type: redshift
+  host: ${AWS_REDSHIFT_HOST}
+  username: ${AWS_REDSHIFT_USERNAME}
+  password: ${AWS_REDSHIFT_PASSWORD}
+  database: ${AWS_REDSHIFT_DATABASE}
+  schema: ${REDSHIFT_SCHEMA}
+  access_key_id: ${AWS_ACCESS_KEY_ID}
+  secret_access_key: ${AWS_SECRET_ACCESS_KEY}
+
