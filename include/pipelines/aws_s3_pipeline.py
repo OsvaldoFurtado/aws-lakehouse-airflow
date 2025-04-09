@@ -11,10 +11,10 @@ def upload_s3_pipeline():
     month = datetime.now().strftime("%m")
     day = datetime.now().strftime("%d")
 
-    local_init_data_path = f'{BASE_LOCAL_PATH}/initial_data/'
+    local_init_data_path = f'{BASE_LOCAL_PATH}/dim_data/'
     local_daily_file_path = f'{BASE_LOCAL_PATH}/year={year}/month={month}/day={day}/'
 
-    target_init_data_s3_path = f's3://{AWS_S3_BUCKET_NAME}/raw/initial_data/'
+    target_init_data_s3_path = f's3://{AWS_S3_BUCKET_NAME}/raw/dim_data/'
     target_daily_data_s3_path = f's3://{AWS_S3_BUCKET_NAME}/raw/year={year}/month={month}/day={day}/'
 
     # Create s3 connection

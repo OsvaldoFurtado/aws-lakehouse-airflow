@@ -31,7 +31,7 @@ DEFAULT_ARGS = {
 
 
 @dag(
-    dag_id="s3_to_redshift_initial_data",
+    dag_id="s3_to_redshift_dim_data",
     description="Load the dimension tables data",
     start_date=datetime(2024, 9, 29),
     schedule=None,
@@ -40,7 +40,7 @@ DEFAULT_ARGS = {
     default_args=DEFAULT_ARGS,
     template_searchpath='/usr/local/airflow/include/sql_redshift'
 )
-def load_s3_redshift_initial_data():
+def load_s3_redshift_dim_data():
 
     begin = DummyOperator(task_id="begin")
 
@@ -50,12 +50,12 @@ def load_s3_redshift_initial_data():
 
     for table in INITIAL_TABLES.keys():
 
-        s3_to_redshift_initial_data = RedshiftDataOperator(
+        s3_to_redshift_dim_data = RedshiftDataOperator(
             task_id=f"copy_table_{table}",
             sql=f"copy_{table}_redshift.sql",
             params={
                 "schema": SCHEMA,
-                "bucket_path": f"s3://{AWS_S3_BUCKET_NAME}/raw/initial_data/{table}.csv",
+                "bucket_path": f"s3://{AWS_S3_BUCKET_NAME}/raw/dim_data/{table}.csv",
                 "iam_role": ARN_ROLE,
                 "delimiter": INITIAL_TABLES[table]["delimiter"]
             },
@@ -69,9 +69,9 @@ def load_s3_redshift_initial_data():
 
         chain(
             begin,
-            s3_to_redshift_initial_data,
+            s3_to_redshift_dim_data,
             end
         )
 
-load_s3_redshift_initial_data()
+load_s3_redshift_dim_data()
 

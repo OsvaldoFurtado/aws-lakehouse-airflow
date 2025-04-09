@@ -43,7 +43,7 @@ def trigger_dags():
 
     trigger_dag_03 = TriggerDagRunOperator(
         task_id="trigger_dag_03",
-        trigger_dag_id="s3_to_redshift_initial_data",
+        trigger_dag_id="s3_to_redshift_dim_data",
         wait_for_completion=True,
     )
 
